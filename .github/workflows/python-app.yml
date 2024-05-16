@@ -1,0 +1,23 @@
+name: Docker Build and Push
+
+on:
+  push:
+    branches: [ main ]  # You can adjust this to trigger on specific branches
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest  # You can choose a different runner
+
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from repository
+
+      - name: Login to Docker Hub
+        uses: docker/login@v2  # Login to Docker Hub using Docker secrets
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
+      - name: Build and push image
+        run: |
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/CA3:latest .
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/CA3:latest
