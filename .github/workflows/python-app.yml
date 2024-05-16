@@ -19,5 +19,5 @@ jobs:
 
       - name: Build and push image
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/CA3:latest .
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/CA3:latest
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/ca3:latest .
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/ca3:latest
