@@ -11,6 +11,7 @@ def home():
         <select name="operation">
             <option value="add">Add</option>
             <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
         </select>
         <input type="number" name="num2" placeholder="Enter second number" required>
         <button type="submit">Calculate</button>
@@ -28,6 +29,8 @@ def calculate():
             result = num1 + num2
         elif operation == 'subtract':
             result = num1 - num2
+        elif operation == 'multiply':
+            result = num1 * num2
         else:
             return jsonify({"error": "Invalid operation"})
 
